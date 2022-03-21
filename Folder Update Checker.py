@@ -1,6 +1,6 @@
 '''
-File Checking
-Date: March 8, 2022
+Folder Update Checker
+Date: March 21, 2022
 
 Author: Alden Tilley
 '''
@@ -27,27 +27,27 @@ def Stop():
 
 def CheckFolders():
     if Folder1Var.get() != "":
-        A1 = glob.glob(Folder1Var.get() + "/*")
+        A1 = glob.glob(Folder1Var.get() + "/**", recursive = True)
         do1 = True
     else:
         do1 = False
     if Folder2Var.get() != "":
-        A2 = glob.glob(Folder2Var.get() + "/*")
+        A2 = glob.glob(Folder2Var.get() + "/**", recursive = True)
         do2 = True
     else:
         do2 = False
     if Folder3Var.get() != "":
-        A3 = glob.glob(Folder3Var.get() + "/*")
+        A3 = glob.glob(Folder3Var.get() + "/**", recursive = True)
         do3 = True
     else:
         do3 = False
     if Folder4Var.get() != "":
-        A4 = glob.glob(Folder4Var.get() + "/*")
+        A4 = glob.glob(Folder4Var.get() + "/**", recursive = True)
         do4 = True
     else:
         do4 = False
     if Folder5Var.get() != "":
-        A5 = glob.glob(Folder5Var.get() + "/*")
+        A5 = glob.glob(Folder5Var.get() + "/**", recursive = True)
         do5 = True
     else:
         do5 = False
@@ -55,15 +55,15 @@ def CheckFolders():
         if StopButton["state"] == tk.DISABLED:
             break
         if do1:
-            B1 = glob.glob(Folder1Var.get() + "/*")
+            B1 = glob.glob(Folder1Var.get() + "/**", recursive = True)
         if do2:
-            B2 = glob.glob(Folder2Var.get() + "/*")
+            B2 = glob.glob(Folder2Var.get() + "/**", recursive = True)
         if do3:
-            B3 = glob.glob(Folder3Var.get() + "/*")
+            B3 = glob.glob(Folder3Var.get() + "/**", recursive = True)
         if do4:
-            B4 = glob.glob(Folder4Var.get() + "/*")
+            B4 = glob.glob(Folder4Var.get() + "/**", recursive = True)
         if do5:
-            B5 = glob.glob(Folder5Var.get() + "/*")
+            B5 = glob.glob(Folder5Var.get() + "/**", recursive = True)
         if do1:
             if A1 != B1:
                 A1 = B1
