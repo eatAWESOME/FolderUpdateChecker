@@ -1,6 +1,6 @@
 '''
 Folder Update Checker
-Date: March 21, 2022
+Date: September 21, 2022
 
 Author: Alden Tilley
 '''
