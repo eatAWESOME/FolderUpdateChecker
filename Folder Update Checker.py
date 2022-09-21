@@ -51,70 +51,73 @@ def CheckFolders():
         do5 = True
     else:
         do5 = False
-    while True:
-        if StopButton["state"] == tk.DISABLED:
-            break
-        if do1:
-            B1 = glob.glob(Folder1Var.get() + "/**", recursive = True)
-        if do2:
-            B2 = glob.glob(Folder2Var.get() + "/**", recursive = True)
-        if do3:
-            B3 = glob.glob(Folder3Var.get() + "/**", recursive = True)
-        if do4:
-            B4 = glob.glob(Folder4Var.get() + "/**", recursive = True)
-        if do5:
-            B5 = glob.glob(Folder5Var.get() + "/**", recursive = True)
-        if do1:
-            if A1 != B1:
-                A1 = B1
-                t = datetime.datetime.now()
-                Text1_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text1_2["text"] = "New Folder 1 File"
-                winsound.Beep(200, 1000)
-            else:
-                Text1_2["text"] = ""
-        if do2:
-            if A2 != B2:
-                A2 = B2
-                t = datetime.datetime.now()
-                Text2_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text2_2["text"] = "New Folder 2 File"
-                winsound.Beep(200, 1000)
-            else:
-                Text2_2["text"] = ""
-        if do3:
-            if A3 != B3:
-                A3 = B3
-                t = datetime.datetime.now()
-                Text3_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text3_2["text"] = "New Folder 3 File"
-                winsound.Beep(200, 1000)
-            else:
-                Text3_2["text"] = ""
-        if do4:
-            if A4 != B4:
-                A4 = B4
-                t = datetime.datetime.now()
-                Text4_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text4_2["text"] = "New Folder 4 File"
-                winsound.Beep(200, 1000)
-            else:
-                Text4_2["text"] = ""
-        if do5:
-            if A5 != B5:
-                A5 = B5
-                t = datetime.datetime.now()
-                Text5_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text5_2["text"] = "New Folder 5 File"
-                winsound.Beep(200, 1000)
-            else:
-                Text5_2["text"] = ""
-        if StopButton["state"] != tk.DISABLED:
+    i = 0
+    while StopButton["state"] != tk.DISABLED:
+        if i == 0:
+            if do1:
+                B1 = glob.glob(Folder1Var.get() + "/**", recursive = True)
+            if do2:
+                B2 = glob.glob(Folder2Var.get() + "/**", recursive = True)
+            if do3:
+                B3 = glob.glob(Folder3Var.get() + "/**", recursive = True)
+            if do4:
+                B4 = glob.glob(Folder4Var.get() + "/**", recursive = True)
+            if do5:
+                B5 = glob.glob(Folder5Var.get() + "/**", recursive = True)
+            if do1:
+                if A1 != B1:
+                    A1 = B1
+                    t = datetime.datetime.now()
+                    Text1_1["text"] = str(t.hour) + ":" + str(t.minute)
+                    Text1_2["text"] = "New Folder 1 File"
+                    winsound.Beep(200, 1000)
+                else:
+                    Text1_2["text"] = ""
+            if do2:
+                if A2 != B2:
+                    A2 = B2
+                    t = datetime.datetime.now()
+                    Text2_1["text"] = str(t.hour) + ":" + str(t.minute)
+                    Text2_2["text"] = "New Folder 2 File"
+                    winsound.Beep(200, 1000)
+                else:
+                    Text2_2["text"] = ""
+            if do3:
+                if A3 != B3:
+                    A3 = B3
+                    t = datetime.datetime.now()
+                    Text3_1["text"] = str(t.hour) + ":" + str(t.minute)
+                    Text3_2["text"] = "New Folder 3 File"
+                    winsound.Beep(200, 1000)
+                else:
+                    Text3_2["text"] = ""
+            if do4:
+                if A4 != B4:
+                    A4 = B4
+                    t = datetime.datetime.now()
+                    Text4_1["text"] = str(t.hour) + ":" + str(t.minute)
+                    Text4_2["text"] = "New Folder 4 File"
+                    winsound.Beep(200, 1000)
+                else:
+                    Text4_2["text"] = ""
+            if do5:
+                if A5 != B5:
+                    A5 = B5
+                    t = datetime.datetime.now()
+                    Text5_1["text"] = str(t.hour) + ":" + str(t.minute)
+                    Text5_2["text"] = "New Folder 5 File"
+                    winsound.Beep(200, 1000)
+                else:
+                    Text5_2["text"] = ""
+        if i == 60:
             if Wake.get():
                 pyautogui.press('volumedown')
                 time.sleep(1)
                 pyautogui.press('volumeup')
-            time.sleep(60)
+            i = 0
+        else:
+            i += 1
+        time.sleep(1)
 
 def StopThread():
     if not thread.is_alive():
