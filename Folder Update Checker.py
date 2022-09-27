@@ -27,7 +27,7 @@ def Stop():
     pass
 
 def CheckFolders():
-    if Folder1Var.get() != "":
+    if os.path.exists(Folder1Var.get()):
         file = Folder1Var.get() + "/**"
     else:
         file = ""
@@ -38,7 +38,7 @@ def CheckFolders():
         AT1 = 0
         
         
-    if Folder2Var.get() != "":
+    if os.path.exists(Folder2Var.get()):
         file = Folder2Var.get() + "/**"
     else:
         file = ""
@@ -49,7 +49,7 @@ def CheckFolders():
         AT2 = 0
         
         
-    if Folder3Var.get() != "":
+    if os.path.exists(Folder3Var.get()):
         file = Folder3Var.get() + "/**"
     else:
         file = ""
@@ -60,7 +60,7 @@ def CheckFolders():
         AT3 = 0
         
         
-    if Folder4Var.get() != "":
+    if os.path.exists(Folder4Var.get()):
         file = Folder4Var.get() + "/**"
     else:
         file = ""
@@ -71,7 +71,7 @@ def CheckFolders():
         AT4 = 0
         
         
-    if Folder5Var.get() != "":
+    if os.path.exists(Folder5Var.get()):
         file = Folder5Var.get() + "/**"
     else:
         file = ""
@@ -85,7 +85,7 @@ def CheckFolders():
     i = 0
     while StopButton["state"] != tk.DISABLED:
         if i == 0:
-            if Folder1Var.get() != "":
+            if os.path.exists(Folder1Var.get()):
                 file = Folder1Var.get() + "/**"
             else:
                 file = ""
@@ -96,7 +96,7 @@ def CheckFolders():
                 BT1 = 0
                 
                 
-            if Folder2Var.get() != "":
+            if os.path.exists(Folder2Var.get()):
                 file = Folder2Var.get() + "/**"
             else:
                 file = ""
@@ -107,7 +107,7 @@ def CheckFolders():
                 BT2 = 0
                 
                 
-            if Folder3Var.get() != "":
+            if os.path.exists(Folder3Var.get()):
                 file = Folder3Var.get() + "/**"
             else:
                 file = ""
@@ -118,7 +118,7 @@ def CheckFolders():
                 BT3 = 0
                 
                 
-            if Folder4Var.get() != "":
+            if os.path.exists(Folder4Var.get()):
                 file = Folder4Var.get() + "/**"
             else:
                 file = ""
@@ -129,7 +129,7 @@ def CheckFolders():
                 BT4 = 0
                 
                 
-            if Folder5Var.get() != "":
+            if os.path.exists(Folder5Var.get()):
                 file = Folder5Var.get() + "/**"
             else:
                 file = ""
@@ -145,10 +145,17 @@ def CheckFolders():
                 AT1 = BT1
                 t = datetime.datetime.now()
                 Text1_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text1_2["text"] = "Folder 1 Changed"
+                if os.path.exists(Folder1Var.get()):
+                    Text1_2["text"] = "Folder 1 Changed"
+                else:
+                    Text1_2["text"] = "Folder 1 Not Found"
                 winsound.Beep(200, 1000)
             else:
-                Text1_2["text"] = ""
+                if os.path.exists(Folder1Var.get()) or Folder1Var.get() == "":
+                    Text1_2["text"] = ""
+                else:
+                    Text1_2["text"] = "Folder 1 Not Found"
+                    winsound.Beep(200, 1000)
                 
                 
             if A2 != B2 or AT2 != BT2:
@@ -156,10 +163,17 @@ def CheckFolders():
                 AT2 = BT2
                 t = datetime.datetime.now()
                 Text2_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text2_2["text"] = "Folder 2 Changed"
+                if os.path.exists(Folder2Var.get()):
+                    Text2_2["text"] = "Folder 2 Changed"
+                else:
+                    Text2_2["text"] = "Folder 2 Not Found"
                 winsound.Beep(200, 1000)
             else:
-                Text2_2["text"] = ""
+                if os.path.exists(Folder2Var.get()) or Folder2Var.get() == "":
+                    Text2_2["text"] = ""
+                else:
+                    Text2_2["text"] = "Folder 2 Not Found"
+                    winsound.Beep(200, 1000)
                 
                 
             if A3 != B3 or AT3 != BT3:
@@ -167,10 +181,17 @@ def CheckFolders():
                 AT3 = BT3
                 t = datetime.datetime.now()
                 Text3_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text3_2["text"] = "Folder 3 Changed"
+                if os.path.exists(Folder3Var.get()):
+                    Text3_2["text"] = "Folder 3 Changed"
+                else:
+                    Text3_2["text"] = "Folder 3 Not Found"
                 winsound.Beep(200, 1000)
             else:
-                Text3_2["text"] = ""
+                if os.path.exists(Folder3Var.get()) or Folder3Var.get() == "":
+                    Text3_2["text"] = ""
+                else:
+                    Text3_2["text"] = "Folder 3 Not Found"
+                    winsound.Beep(200, 1000)
                 
                 
             if A4 != B4 or AT4 != BT4:
@@ -178,10 +199,17 @@ def CheckFolders():
                 AT4 = BT4
                 t = datetime.datetime.now()
                 Text4_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text4_2["text"] = "Folder 4 Changed"
+                if os.path.exists(Folder4Var.get()):
+                    Text4_2["text"] = "Folder 4 Changed"
+                else:
+                    Text4_2["text"] = "Folder 4 Not Found"
                 winsound.Beep(200, 1000)
             else:
-                Text4_2["text"] = ""
+                if os.path.exists(Folder4Var.get()) or Folder4Var.get() == "":
+                    Text4_2["text"] = ""
+                else:
+                    Text4_2["text"] = "Folder 4 Not Found"
+                    winsound.Beep(200, 1000)
                 
                 
             if A5 != B5 or AT5 != BT5:
@@ -189,13 +217,20 @@ def CheckFolders():
                 AT5 = BT5
                 t = datetime.datetime.now()
                 Text5_1["text"] = str(t.hour) + ":" + str(t.minute)
-                Text5_2["text"] = "Folder 5 Changed"
+                if os.path.exists(Folder5Var.get()):
+                    Text5_2["text"] = "Folder 5 Changed"
+                else:
+                    Text5_2["text"] = "Folder 5 Not Found"
                 winsound.Beep(200, 1000)
             else:
-                Text5_2["text"] = ""
+                if os.path.exists(Folder5Var.get()) or Folder5Var.get() == "":
+                    Text5_2["text"] = ""
+                else:
+                    Text5_2["text"] = "Folder 5 Not Found"
+                    winsound.Beep(200, 1000)
                 
                 
-        if i == 2:
+        if i == 60:
             if Wake.get():
                 pyautogui.press('volumedown')
                 time.sleep(1)
