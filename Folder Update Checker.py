@@ -1,6 +1,6 @@
 '''
 Folder Update Checker
-Date: September 21, 2022
+Date: September 27, 2022
 
 Author: Alden Tilley
 '''
@@ -28,104 +28,174 @@ def Stop():
 
 def CheckFolders():
     if Folder1Var.get() != "":
-        A1 = glob.glob(Folder1Var.get() + "/**", recursive = True)
+        file = Folder1Var.get() + "/**"
+    else:
+        file = ""
+    A1 = glob.glob(file, recursive = True)
+    if A1 != []:
         AT1 = os.path.getmtime(max(A1, key = os.path.getmtime))
-        do1 = True
     else:
-        do1 = False
+        AT1 = 0
+        
+        
     if Folder2Var.get() != "":
-        A2 = glob.glob(Folder2Var.get() + "/**", recursive = True)
+        file = Folder2Var.get() + "/**"
+    else:
+        file = ""
+    A2 = glob.glob(file, recursive = True)
+    if A2 != []:
         AT2 = os.path.getmtime(max(A2, key = os.path.getmtime))
-        do2 = True
     else:
-        do2 = False
+        AT2 = 0
+        
+        
     if Folder3Var.get() != "":
-        A3 = glob.glob(Folder3Var.get() + "/**", recursive = True)
+        file = Folder3Var.get() + "/**"
+    else:
+        file = ""
+    A3 = glob.glob(file, recursive = True)
+    if A3 != []:
         AT3 = os.path.getmtime(max(A3, key = os.path.getmtime))
-        do3 = True
     else:
-        do3 = False
+        AT3 = 0
+        
+        
     if Folder4Var.get() != "":
-        A4 = glob.glob(Folder4Var.get() + "/**", recursive = True)
+        file = Folder4Var.get() + "/**"
+    else:
+        file = ""
+    A4 = glob.glob(file, recursive = True)
+    if A4 != []:
         AT4 = os.path.getmtime(max(A4, key = os.path.getmtime))
-        do4 = True
     else:
-        do4 = False
+        AT4 = 0
+        
+        
     if Folder5Var.get() != "":
-        A5 = glob.glob(Folder5Var.get() + "/**", recursive = True)
-        AT5 = os.path.getmtime(max(A5, key = os.path.getmtime))
-        do5 = True
+        file = Folder5Var.get() + "/**"
     else:
-        do5 = False
+        file = ""
+    A5 = glob.glob(file, recursive = True)
+    if A5 != []:
+        AT5 = os.path.getmtime(max(A5, key = os.path.getmtime))
+    else:
+        AT5 = 0
+        
+        
     i = 0
     while StopButton["state"] != tk.DISABLED:
         if i == 0:
-            if do1:
-                B1 = glob.glob(Folder1Var.get() + "/**", recursive = True)
+            if Folder1Var.get() != "":
+                file = Folder1Var.get() + "/**"
+            else:
+                file = ""
+            B1 = glob.glob(file, recursive = True)
+            if B1 != []:
                 BT1 = os.path.getmtime(max(B1, key = os.path.getmtime))
-            if do2:
-                B2 = glob.glob(Folder2Var.get() + "/**", recursive = True)
+            else:
+                BT1 = 0
+                
+                
+            if Folder2Var.get() != "":
+                file = Folder2Var.get() + "/**"
+            else:
+                file = ""
+            B2 = glob.glob(file, recursive = True)
+            if B2 != []:
                 BT2 = os.path.getmtime(max(B2, key = os.path.getmtime))
-            if do3:
-                B3 = glob.glob(Folder3Var.get() + "/**", recursive = True)
+            else:
+                BT2 = 0
+                
+                
+            if Folder3Var.get() != "":
+                file = Folder3Var.get() + "/**"
+            else:
+                file = ""
+            B3 = glob.glob(file, recursive = True)
+            if B3 != []:
                 BT3 = os.path.getmtime(max(B3, key = os.path.getmtime))
-            if do4:
-                B4 = glob.glob(Folder4Var.get() + "/**", recursive = True)
+            else:
+                BT3 = 0
+                
+                
+            if Folder4Var.get() != "":
+                file = Folder4Var.get() + "/**"
+            else:
+                file = ""
+            B4 = glob.glob(file, recursive = True)
+            if B4 != []:
                 BT4 = os.path.getmtime(max(B4, key = os.path.getmtime))
-            if do5:
-                B5 = glob.glob(Folder5Var.get() + "/**", recursive = True)
+            else:
+                BT4 = 0
+                
+                
+            if Folder5Var.get() != "":
+                file = Folder5Var.get() + "/**"
+            else:
+                file = ""
+            B5 = glob.glob(file, recursive = True)
+            if B5 != []:
                 BT5 = os.path.getmtime(max(B5, key = os.path.getmtime))
-            if do1:
-                if A1 != B1 or AT1 != BT1:
-                    A1 = B1
-                    AT1 = BT1
-                    t = datetime.datetime.now()
-                    Text1_1["text"] = str(t.hour) + ":" + str(t.minute)
-                    Text1_2["text"] = "Folder 1 Changed"
-                    winsound.Beep(200, 1000)
-                else:
-                    Text1_2["text"] = ""
-            if do2:
-                if A2 != B2 or AT2 != BT2:
-                    A2 = B2
-                    AT2 = BT2
-                    t = datetime.datetime.now()
-                    Text2_1["text"] = str(t.hour) + ":" + str(t.minute)
-                    Text2_2["text"] = "Folder 2 Changed"
-                    winsound.Beep(200, 1000)
-                else:
-                    Text2_2["text"] = ""
-            if do3:
-                if A3 != B3 or AT3 != BT3:
-                    A3 = B3
-                    AT3 = BT3
-                    t = datetime.datetime.now()
-                    Text3_1["text"] = str(t.hour) + ":" + str(t.minute)
-                    Text3_2["text"] = "Folder 3 Changed"
-                    winsound.Beep(200, 1000)
-                else:
-                    Text3_2["text"] = ""
-            if do4:
-                if A4 != B4 or AT4 != BT4:
-                    A4 = B4
-                    AT4 = BT4
-                    t = datetime.datetime.now()
-                    Text4_1["text"] = str(t.hour) + ":" + str(t.minute)
-                    Text4_2["text"] = "Folder 4 Changed"
-                    winsound.Beep(200, 1000)
-                else:
-                    Text4_2["text"] = ""
-            if do5:
-                if A5 != B5 or AT5 != BT5:
-                    A5 = B5
-                    AT5 = BT5
-                    t = datetime.datetime.now()
-                    Text5_1["text"] = str(t.hour) + ":" + str(t.minute)
-                    Text5_2["text"] = "Folder 5 Changed"
-                    winsound.Beep(200, 1000)
-                else:
-                    Text5_2["text"] = ""
-        if i == 60:
+            else:
+                BT5 = 0
+                
+                
+            if A1 != B1 or AT1 != BT1:
+                A1 = B1
+                AT1 = BT1
+                t = datetime.datetime.now()
+                Text1_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text1_2["text"] = "Folder 1 Changed"
+                winsound.Beep(200, 1000)
+            else:
+                Text1_2["text"] = ""
+                
+                
+            if A2 != B2 or AT2 != BT2:
+                A2 = B2
+                AT2 = BT2
+                t = datetime.datetime.now()
+                Text2_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text2_2["text"] = "Folder 2 Changed"
+                winsound.Beep(200, 1000)
+            else:
+                Text2_2["text"] = ""
+                
+                
+            if A3 != B3 or AT3 != BT3:
+                A3 = B3
+                AT3 = BT3
+                t = datetime.datetime.now()
+                Text3_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text3_2["text"] = "Folder 3 Changed"
+                winsound.Beep(200, 1000)
+            else:
+                Text3_2["text"] = ""
+                
+                
+            if A4 != B4 or AT4 != BT4:
+                A4 = B4
+                AT4 = BT4
+                t = datetime.datetime.now()
+                Text4_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text4_2["text"] = "Folder 4 Changed"
+                winsound.Beep(200, 1000)
+            else:
+                Text4_2["text"] = ""
+                
+                
+            if A5 != B5 or AT5 != BT5:
+                A5 = B5
+                AT5 = BT5
+                t = datetime.datetime.now()
+                Text5_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text5_2["text"] = "Folder 5 Changed"
+                winsound.Beep(200, 1000)
+            else:
+                Text5_2["text"] = ""
+                
+                
+        if i == 2:
             if Wake.get():
                 pyautogui.press('volumedown')
                 time.sleep(1)
