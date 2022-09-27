@@ -27,6 +27,7 @@ def Stop():
     pass
 
 def CheckFolders():
+    pyautogui.FAILSAFE = False
     if os.path.exists(Folder1Var.get()):
         file = Folder1Var.get() + "/**"
     else:
