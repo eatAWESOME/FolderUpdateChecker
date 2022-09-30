@@ -145,7 +145,7 @@ def CheckFolders():
                 A1 = B1
                 AT1 = BT1
                 t = datetime.datetime.now()
-                Text1_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text1_1["text"] = str(t.hour) + ":" + "%02d" % t.minute
                 if os.path.exists(Folder1Var.get()):
                     Text1_2["text"] = "Folder 1 Changed"
                 else:
@@ -163,7 +163,7 @@ def CheckFolders():
                 A2 = B2
                 AT2 = BT2
                 t = datetime.datetime.now()
-                Text2_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text2_1["text"] = str(t.hour) + ":" + "%02d" % t.minute
                 if os.path.exists(Folder2Var.get()):
                     Text2_2["text"] = "Folder 2 Changed"
                 else:
@@ -181,7 +181,7 @@ def CheckFolders():
                 A3 = B3
                 AT3 = BT3
                 t = datetime.datetime.now()
-                Text3_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text3_1["text"] = str(t.hour) + ":" + "%02d" % t.minute
                 if os.path.exists(Folder3Var.get()):
                     Text3_2["text"] = "Folder 3 Changed"
                 else:
@@ -199,7 +199,7 @@ def CheckFolders():
                 A4 = B4
                 AT4 = BT4
                 t = datetime.datetime.now()
-                Text4_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text4_1["text"] = str(t.hour) + ":" + "%02d" % t.minute
                 if os.path.exists(Folder4Var.get()):
                     Text4_2["text"] = "Folder 4 Changed"
                 else:
@@ -217,7 +217,7 @@ def CheckFolders():
                 A5 = B5
                 AT5 = BT5
                 t = datetime.datetime.now()
-                Text5_1["text"] = str(t.hour) + ":" + str(t.minute)
+                Text5_1["text"] = str(t.hour) + ":" + "%02d" % t.minute
                 if os.path.exists(Folder5Var.get()):
                     Text5_2["text"] = "Folder 5 Changed"
                 else:
