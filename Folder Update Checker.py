@@ -1,8 +1,7 @@
 '''
-Folder Update Checker
-Date: September 27, 2022
-
 Author: Alden Tilley
+https://github.com/eatAWESOME
+Date: 2/23/2023
 '''
 
 import os
@@ -249,31 +248,46 @@ def StopThread():
         root.after(1000, StopThread) 
 
 def Folder1Browser():
-    InitialDirectory = "C:/"
+    if Folder1Var.get() != "" and os.path.exists(Folder1Var.get()):
+        InitialDirectory = Folder1Var.get()
+    else:
+        InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
     Folder1Var.delete(0, tk.END)
     Folder1Var.insert(0, root.filename)
     
 def Folder2Browser():
-    InitialDirectory = "C:/"
+    if Folder2Var.get() != "" and os.path.exists(Folder2Var.get()):
+        InitialDirectory = Folder2Var.get()
+    else:
+        InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
     Folder2Var.delete(0, tk.END)
     Folder2Var.insert(0, root.filename)
 
 def Folder3Browser():
-    InitialDirectory = "C:/"
+    if Folder3Var.get() != "" and os.path.exists(Folder3Var.get()):
+        InitialDirectory = Folder3Var.get()
+    else:
+        InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
     Folder3Var.delete(0, tk.END)
     Folder3Var.insert(0, root.filename)
     
 def Folder4Browser():
-    InitialDirectory = "C:/"
+    if Folder4Var.get() != "" and os.path.exists(Folder4Var.get()):
+        InitialDirectory = Folder4Var.get()
+    else:
+        InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
     Folder4Var.delete(0, tk.END)
     Folder4Var.insert(0, root.filename)
     
 def Folder5Browser():
-    InitialDirectory = "C:/"
+    if Folder5Var.get() != "" and os.path.exists(Folder5Var.get()):
+        InitialDirectory = Folder5Var.get()
+    else:
+        InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
     Folder5Var.delete(0, tk.END)
     Folder5Var.insert(0, root.filename)
