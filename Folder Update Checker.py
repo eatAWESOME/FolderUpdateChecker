@@ -249,7 +249,7 @@ def StopThread():
 
 def Folder1Browser():
     if Folder1Var.get() != "" and os.path.exists(Folder1Var.get()):
-        InitialDirectory = Folder1Var.get()
+        InitialDirectory = os.path.dirname(Folder1Var.get())
     else:
         InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
@@ -258,7 +258,7 @@ def Folder1Browser():
     
 def Folder2Browser():
     if Folder2Var.get() != "" and os.path.exists(Folder2Var.get()):
-        InitialDirectory = Folder2Var.get()
+        InitialDirectory = os.path.dirname(Folder2Var.get())
     else:
         InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
@@ -267,7 +267,7 @@ def Folder2Browser():
 
 def Folder3Browser():
     if Folder3Var.get() != "" and os.path.exists(Folder3Var.get()):
-        InitialDirectory = Folder3Var.get()
+        InitialDirectory = os.path.dirname(Folder3Var.get())
     else:
         InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
@@ -276,7 +276,7 @@ def Folder3Browser():
     
 def Folder4Browser():
     if Folder4Var.get() != "" and os.path.exists(Folder4Var.get()):
-        InitialDirectory = Folder4Var.get()
+        InitialDirectory = os.path.dirname(Folder4Var.get())
     else:
         InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
@@ -285,7 +285,7 @@ def Folder4Browser():
     
 def Folder5Browser():
     if Folder5Var.get() != "" and os.path.exists(Folder5Var.get()):
-        InitialDirectory = Folder5Var.get()
+        InitialDirectory = os.path.dirname(Folder5Var.get())
     else:
         InitialDirectory = "C:/"
     root.filename = filedialog.askdirectory(initialdir = InitialDirectory, title = "Browse")
