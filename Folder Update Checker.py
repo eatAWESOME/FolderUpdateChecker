@@ -232,9 +232,9 @@ def CheckFolders():
                 
         if i == 60:
             if Wake.get():
-                pyautogui.press('volumedown')
-                time.sleep(1)
-                pyautogui.press('volumeup')
+                pyautogui.press('volumemute')
+                time.sleep(0.1)
+                pyautogui.press('volumemute')
             i = 0
         else:
             i += 1
