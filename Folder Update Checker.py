@@ -6,6 +6,7 @@ https://github.com/eatAWESOME
 import os
 import glob
 import time
+import argparse
 import datetime
 import winsound
 import pyautogui
@@ -15,6 +16,7 @@ from tkinter import filedialog, ttk
 
 def Start():
     StartButton["state"] = tk.DISABLED
+    StopButton["state"] = tk.NORMAL
     global thread
     thread = threading.Thread(target = CheckFolders)
     thread.start()
@@ -302,7 +304,6 @@ def CheckFolders():
 def StopThread():
     if not thread.is_alive():
         StartButton["state"] = tk.NORMAL
-        StopButton["state"] = tk.NORMAL
     else:
         root.after(1000, StopThread) 
 
@@ -454,5 +455,16 @@ if __name__ == "__main__":
     StartButton.grid(row = 41, column = 0, columnspan = 34)
     StopButton = tk.Button(root, text = "Stop", command = Stop)
     StopButton.grid(row = 42, column = 0, columnspan = 34)
+    StopButton["state"] = tk.DISABLED
+    
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--Mode", nargs = "?", const = "Normal", type = str, default = "Normal", choices = ["Normal", "Startup"], help = "Folder Update Checker Mode: Normal or Startup")
+    args = vars(ap.parse_args())
+    if args["Mode"] == "Startup":
+        WakeIntervalVar.delete(0, tk.END)
+        WakeIntervalVar.insert(0, "5")
+        WakeIntervalUnitsBox.current(1)
+        Start()
+        root.state(newstate = "iconic")
     
     root.mainloop()
